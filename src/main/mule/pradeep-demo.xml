@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b3044c07-1ce7-45ff-935c-14edf0a82629" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="pradeep-demoFlow" doc:id="cf033dd8-5634-4a61-9a94-b961401486c4" >
+		<http:listener doc:name="Listener" doc:id="b9a0c298-fdd9-43b1-bec9-257cf5050d4d" config-ref="HTTP_Listener_config" path="/demo"/>
+		<logger level="INFO" doc:name="Logger" doc:id="be17b99a-3d9a-4723-9e1d-c0d9009e8441" message="*************** Before Payload ****************"/>
+		<set-payload value='#["Hello Pradeep!!!"]' doc:name="Set Payload" doc:id="85c6c402-3657-4725-a528-b53b4fd19653" />
+		<logger level="INFO" doc:name="Logger" doc:id="37bee7cc-8d00-4e86-afd1-9cd8180caa3d" message="*************** After Payload ****************"/>
+	</flow>
+</mule>
