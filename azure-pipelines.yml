@@ -12,7 +12,8 @@ trigger:
     - pom.xml
 
 pool:
-  vmImage: 'ubuntu-latest'
+  #vmImage: 'ubuntu-latest'
+  name: 'ppr-local-agent-pool'
 variables:
 - group: Azure-Variable-Group
 - name: MAVEN_CACHE_FOLDER
