@@ -53,4 +53,4 @@ steps:
     mavenVersionOption: 'Default'
     effectivePomSkip: true
     sonarQubeRunAnalysis: false
-    goals: 'clean package deploy $(MAVEN_OPTS)  -DmuleDeploy -Dserver=$(server) -Denvironment=$(environment) -Dworkers=$(workers) -DworkerType=$(workerType) -Dmule.version=$(muleVersion) -Dcloudhub.application.name=$(appName)'
+    goals: 'clean deploy $(MAVEN_OPTS) -DmuleDeploy -Dserver=$(server) -Denvironment=$(environment) -Dworkers=$(workers) -DworkerType=$(workerType) -Dmule.version=$(muleVersion) -Dcloudhub.application.name=$(appName)'
