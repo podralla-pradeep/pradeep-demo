@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
 	<artifactId>pradeep-demo</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
 	<name>pradeep-demo</name>
@@ -12,7 +14,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 		<mule.version>4.7.3</mule.version>
 		<mule.maven.plugin.version>4.2.0</mule.maven.plugin.version>
 	</properties>
@@ -20,34 +21,53 @@
 	<build>
 		<plugins>
 			<plugin>
-                <groupId>org.mule.tools.maven</groupId>
-                <artifactId>mule-maven-plugin</artifactId>
-                <version>${mule.maven.plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <skip>false</skip>
-                    <redeploy>true</redeploy>
-                    <cloudHubDeployment>
-                    	  <uri>https://anypoint.mulesoft.com</uri>
-					      <muleVersion>${mule.version}</muleVersion>
-					      <applicationName>${cloudhub.application.name}</applicationName>
-					      <environment>${environment}</environment>
-					      <region>${region}</region>
-					      <workers>${workers}</workers>
-					      <workerType>${workerType}</workerType>
-                    </cloudHubDeployment>
-                </configuration>
-            </plugin>
-			
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.mule.tools.maven</groupId> -->
-<!-- 				<artifactId>mule-maven-plugin</artifactId> -->
-<!-- 				<version>${mule.maven.plugin.version}</version> -->
-<!-- 				<extensions>true</extensions> -->
-<!-- 			</plugin> -->
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<skip>false</skip>
+					<redeploy>true</redeploy>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${mule.version}</muleVersion>
+						<username>${username}</username>
+						<password>${password}</password>
+						<businessGroup>Persistent</businessGroup>
+						<applicationName>${cloudhub.application.name}</applicationName>
+						<environment>${environment}</environment>
+						<region>${region}</region>
+						<workers>${workers}</workers>
+						<workerType>${workerType}</workerType>
+						<properties>
+							<mule.env>${environment}</mule.env>
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+						</properties>
+					</cloudHubDeployment>
+					<executions>
+						<execution>
+							<id>deploy</id>
+							<goals>
+								<goal>deploy</goal>
+							</goals>
+							<configuration>
+								<classifier>mule-application</classifier>
+							</configuration>
+						</execution>
+					</executions>
+					<classifier>mule-application</classifier>
+				</configuration>
+			</plugin>
+
+			<!-- 			<plugin> -->
+			<!-- 				<groupId>org.mule.tools.maven</groupId> -->
+			<!-- 				<artifactId>mule-maven-plugin</artifactId> -->
+			<!-- 				<version>${mule.maven.plugin.version}</version> -->
+			<!-- 				<extensions>true</extensions> -->
+			<!-- 			</plugin> -->
 		</plugins>
 	</build>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
