@@ -45,7 +45,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
-    jdkVersionOption: '1.8'
+    jdkVersionOption: '17.0'
     jdkArchitectureOption: 'x64'
     mavenAuthenticateFeed: true
     publishJUnitResults: false
