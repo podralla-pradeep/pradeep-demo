@@ -14,7 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<mule.version>4.7.3</mule.version>
-		<mule.maven.plugin.version>4.2.0</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.9.2</mule.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -38,11 +38,7 @@
                     </cloudHubDeployment>
                 </configuration>
             </plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>
-			</plugin>
+			
 <!-- 			<plugin> -->
 <!-- 				<groupId>org.mule.tools.maven</groupId> -->
 <!-- 				<artifactId>mule-maven-plugin</artifactId> -->
